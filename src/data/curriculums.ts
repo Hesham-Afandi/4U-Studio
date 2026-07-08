@@ -74,28 +74,40 @@ export const curriculums: Record<string, Curriculum> = {
   'UAE-phy-9-adv-bridge-1': phy9AdvBridge1,
   'physics-9-adv-bridge-1': phy9AdvBridge1,
   'UAE-physics-9-adv-bridge-1': phy9AdvBridge1,
+  'physics-9-bridge-1': phy9AdvBridge1,
+  'UAE-physics-9-bridge-1': phy9AdvBridge1,
 
   'phy-9-adv-inspire-1': phy9AdvInspire1,
   'UAE-phy-9-adv-inspire-1': phy9AdvInspire1,
   'physics-9-adv-inspire-1': phy9AdvInspire1,
   'UAE-physics-9-adv-inspire-1': phy9AdvInspire1,
+  'physics-9-inspire-1': phy9AdvInspire1,
+  'UAE-physics-9-inspire-1': phy9AdvInspire1,
 
   // Grade 9 Math (Adv Inspire 1 & Adv Bridge 1)
   'math-9-adv-inspire-1': math9AdvInspire1,
   'UAE-math-9-adv-inspire-1': math9AdvInspire1,
+  'math-9-inspire-1': math9AdvInspire1,
+  'UAE-math-9-inspire-1': math9AdvInspire1,
   'math-9-adv-bridge-1': math9AdvBridge1,
   'UAE-math-9-adv-bridge-1': math9AdvBridge1,
+  'math-9-bridge-1': math9AdvBridge1,
+  'UAE-math-9-bridge-1': math9AdvBridge1,
 
   // Grade 10 Physics (Adv Inspire 1 & Adv Bridge 1)
   'phy-10-adv-inspire-1': phy10AdvInspire1,
   'UAE-phy-10-adv-inspire-1': phy10AdvInspire1,
   'physics-10-adv-inspire-1': phy10AdvInspire1,
   'UAE-physics-10-adv-inspire-1': phy10AdvInspire1,
+  'physics-10-inspire-1': phy10AdvInspire1,
+  'UAE-physics-10-inspire-1': phy10AdvInspire1,
 
   'phy-10-adv-bridge-1': phy10AdvBridge1,
   'UAE-phy-10-adv-bridge-1': phy10AdvBridge1,
   'physics-10-adv-bridge-1': phy10AdvBridge1,
   'UAE-physics-10-adv-bridge-1': phy10AdvBridge1,
+  'physics-10-bridge-1': phy10AdvBridge1,
+  'UAE-physics-10-bridge-1': phy10AdvBridge1,
 
   // Grade 10 Math (General 1, Adv Bridge 1, Adv Inspire 1)
   'math-10-general-1': math10General1,
@@ -103,7 +115,11 @@ export const curriculums: Record<string, Curriculum> = {
 
   'math-10-adv-bridge-1': math10AdvBridge1,
   'UAE-math-10-adv-bridge-1': math10AdvBridge1,
+  'math-10-bridge-1': math10AdvBridge1,
+  'UAE-math-10-bridge-1': math10AdvBridge1,
 
   'math-10-adv-inspire-1': math10AdvInspire1,
-  'UAE-math-10-adv-inspire-1': math10AdvInspire1
+  'UAE-math-10-adv-inspire-1': math10AdvInspire1,
+  'math-10-inspire-1': math10AdvInspire1,
+  'UAE-math-10-inspire-1': math10AdvInspire1
 };
