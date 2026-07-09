@@ -51,6 +51,7 @@ export interface Lesson {
   duration: string;
   lessonUrl: string;
   examUrl: string;
+  videoUrl?: string;
   lessonTitle?: string;
   examTitle?: string;
   content?: LessonContent;
@@ -68,6 +69,7 @@ export interface Unit {
 export interface Curriculum {
   isEnglish: boolean;
   units: Unit[];
+  studentBookUrl?: string;
 }
 
 export interface Database {

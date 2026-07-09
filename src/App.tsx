@@ -3,13 +3,14 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   BookOpen, Search, RotateCcw, Heart, BarChart2, Sun, Moon, 
   Home, ChevronRight, Share2, Clipboard, Award, Printer, CheckCircle, Clock,
-  Download, Mic
+  Download, Mic, Sparkles, Megaphone
 } from 'lucide-react';
 import { DB, countries } from './data';
 import { Term, Stream, Program, Grade, Subject, Unit, Lesson, AppState } from './types';
 import { 
   FavoritesModal, StatsModal, CertificateModal, ShareModal, 
-  PlannerModal, SummaryNotesModal, ReminderSettingModal, AlarmTriggeredModal 
+  PlannerModal, SummaryNotesModal, ReminderSettingModal, AlarmTriggeredModal,
+  InstallAppModal, VideoPlayerModal
 } from './components/modals';
 import { WeeklyStudyPlanner } from './components/layout';
 
@@ -21,6 +22,33 @@ const DAYS_OF_WEEK = [
   { key: 'Wednesday', name: 'الأربعاء' },
   { key: 'Thursday', name: 'الخميس' },
   { key: 'Friday', name: 'الجمعة' },
+];
+
+// =========================================================================
+// 🔔 لوحة تحكم الإشعارات الإدارية للمنصة (تغيير نص الإشعار العام للمستخدمين)
+// قم بتغيير النص أدناه لإرسال رسالة أو تنبيه جديد لكافة زوار المنصة:
+// =========================================================================
+const ADMIN_NOTIFICATION = {
+  isEnabled: true, // اجعلها false لإخفاء شريط الإشعارات تماماً
+  text: "📢 تنبيه هام: تم رفع وتحديث كافة فيديوهات الشرح وحلول نماذج امتحانات الصف العاشر والحادي عشر بنجاح! بالتوفيق والنجاح لجميع طلابنا الأعزاء ✨",
+  badgeText: "جديدنا اليوم", // كلمة تظهر بجانب الإشعار كملصق ملون
+  colorScheme: "amber", // 'amber' أو 'indigo' أو 'green' أو 'rose' للتحكم في مظهر التنبيه
+};
+
+// =========================================================================
+// 🌟 قائمة الاقتباسات وحكم العلم والجمال (تتغير تلقائياً مع كل تحديث للصفحة)
+// =========================================================================
+const STUDY_QUOTES = [
+  "العِلْمُ يَبْنِي بُيُوتًا لَا عِمَادَ لَهَا.. وَالجَهْلُ يَهْدِمُ بَيْتَ العِزِّ وَالكَرَمِ. 🌟",
+  "الجمال الحقيقي يكمن في سعي النفس نحو العلم، والارتقاء بالفكر لنيل المعالي. ✨",
+  "من أراد الدنيا فعليه بالعلم، ومن أراد الآخرة فعليه بالعلم، ومن أرادهما معاً فعليه بالعلم. 📚",
+  "كلما اتسعت رقعة معرفتك، كلما ازدادت رؤيتك لجمال الكون وبهاء تفاصيله. 🌍",
+  "ليس الجمال بأثواب تزيّننا.. إن الجمال جمال العلم والأدب. 🎓",
+  "التعليم هو السلاح الأقوى الذي يمكنك استخدامه لتغيير العالم وتشكيل المستقبل. 🚀",
+  "النجاح ليس صدفة، بل هو ثمرة الكفاح، شغف التعلم، والاستمرار في العطاء والجمال. ❤️",
+  "العلم كالنور، يضيء لك المجهول ويصنع منك شخصاً مؤثراً ينفع البشرية. 💡",
+  "لا ينال العلم براحة الجسد، فاجتهد اليوم لتجني غداً ثمار النجاح الباهرة. 🏆",
+  "المعرفة قوة، والجمال في السعي المستمر لتطوير الذات ونشر الخير للناس. 🤝"
 ];
 
 const COUNTRY_INFO: Record<string, { name: string; flag: string }> = {
@@ -78,6 +106,9 @@ export default function App() {
   const [loaderSrc, setLoaderSrc] = useState(teacherLoader);
   const [toast, setToast] = useState<string | null>(null);
   const [installPrompt, setInstallPrompt] = useState<any>(null);
+  const [showInstallModal, setShowInstallModal] = useState(false);
+  const [activeVideoLesson, setActiveVideoLesson] = useState<Lesson | null>(null);
+  const [activeQuote, setActiveQuote] = useState('');
 
   // Focus Mode & Personal Student Notes
   const [isFocusMode, setIsFocusMode] = useState(false);
@@ -141,6 +172,10 @@ export default function App() {
     const timer = setTimeout(() => {
       setShowLoader(false);
     }, 2200);
+
+    // Pick a random quote on refresh/mount
+    const randomIdx = Math.floor(Math.random() * STUDY_QUOTES.length);
+    setActiveQuote(STUDY_QUOTES[randomIdx]);
 
     // Check if the prompt was already deferred globally on window before React mounted
     if ((window as any).deferredPrompt) {
@@ -407,6 +442,41 @@ export default function App() {
     return `${countryPart}-${stateVal.subject.id}-${stateVal.grade.id}-${streamPart}-${stateVal.term.id}`;
   };
 
+  // Helper to dynamically build the Student Book URL as requested:
+  // e.g., https://hesham-afandi.github.io/12Jen-math-T1-0/
+  const getStudentBookUrl = () => {
+    if (!appState.grade || !appState.stream || !appState.subject || !appState.term) {
+      return '';
+    }
+    
+    const gradeNum = appState.grade.id; // e.g. 12, 11, 10, 9
+    
+    // Stream code: 'general' -> 'Jen', 'advanced' -> 'Adv'
+    const streamCode = appState.stream.id === 'general' ? 'Jen' : 'Adv';
+    
+    // Program code: 'bridge' -> '-Bri', 'inspire' -> '-Ins', otherwise empty
+    let programCode = '';
+    if (appState.program) {
+      if (appState.program.id === 'bridge') programCode = '-Bri';
+      else if (appState.program.id === 'inspire') programCode = '-Ins';
+    }
+    
+    // Subject code: 'math' -> 'math', 'physics' -> 'phy', otherwise subject.id
+    const subMap: Record<string, string> = {
+      math: 'math',
+      physics: 'phy',
+      chemistry: 'chem',
+      biology: 'bio'
+    };
+    const subjectCode = subMap[appState.subject.id] || appState.subject.id;
+    
+    // Term code: 'T' + term.id (e.g., T1)
+    const termCode = `T${appState.term.id}`;
+    
+    // Construct full URL
+    return `https://hesham-afandi.github.io/${gradeNum}${streamCode}${programCode}-${subjectCode}-${termCode}-0/`;
+  };
+
   const getCurriculum = (key: string | null, stateVal: AppState = appState) => {
     if (!key) return null;
     const country = stateVal.country || 'UAE';
@@ -434,9 +504,7 @@ export default function App() {
   };
 
   // Install App Action
-  const handleInstallApp = async () => {
-    const isInIframe = window.self !== window.top;
-    
+  const handleInstallPWA = async () => {
     if (installPrompt) {
       try {
         await installPrompt.prompt();
@@ -451,20 +519,11 @@ export default function App() {
         console.error(e);
         showToastMsg('📥 لتثبيت التطبيق: اضغط على زر التثبيت المباشر في شريط العنوان العلوي للمتصفح.');
       }
-      return;
     }
+  };
 
-    if (isInIframe) {
-      showToastMsg('💡 للتثبيت المباشر بنقرة واحدة، يرجى فتح التطبيق في نافذة جديدة (خارج إطار المعاينة) لتنشيط التثبيت الفوري!');
-      return;
-    }
-
-    const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
-    if (isiOS) {
-      showToastMsg('📥 للتثبيت على آيفون: اضغط زر "مشاركة" 📤 ثم "إضافة للشاشة الرئيسية" 📲');
-    } else {
-      showToastMsg('📥 للتثبيت المباشر: اضغط على أيقونة التثبيت (➕) المباشرة في شريط العنوان أو القائمة العلوية للتثبيت فوراً دون خطوات إضافية! ⚡');
-    }
+  const handleInstallApp = () => {
+    setShowInstallModal(true);
   };
 
   // Keyboard Shortcuts handler
@@ -1327,6 +1386,56 @@ export default function App() {
             {/* VIEW 0: SELECT COUNTRY */}
             {!appState.country && (
               <div className="fade-in">
+                
+                {/* ADMIN BROADCAST NOTIFICATION BAR */}
+                {ADMIN_NOTIFICATION.isEnabled && (
+                  <div className="mb-6 bg-gradient-to-r from-amber-500/10 via-amber-600/15 to-amber-500/10 border border-amber-500/30 dark:border-amber-500/20 rounded-3xl p-4 md:p-5 flex items-center gap-4 flex-row-reverse text-right shadow-sm relative overflow-hidden">
+                    <div className="absolute right-0 top-0 h-full w-1.5 bg-amber-500" />
+                    <div className="bg-amber-500/20 text-amber-600 dark:text-amber-400 p-2.5 rounded-2xl shrink-0">
+                      <Megaphone className="w-5 h-5 animate-bounce" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1 flex-row-reverse">
+                        <span className="bg-amber-500 text-slate-950 font-black text-xs px-3 py-1 rounded-full select-none shadow-sm">
+                          ({ADMIN_NOTIFICATION.badgeText})
+                        </span>
+                      </div>
+                      <p className="text-xs md:text-sm font-bold text-slate-800 dark:text-amber-100/90 leading-relaxed">
+                        {ADMIN_NOTIFICATION.text}
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {/* DYNAMIC MOTIVATIONAL QUOTES BAR */}
+                {activeQuote && (
+                  <div className="mb-6 bg-gradient-to-r from-indigo-500/5 to-purple-500/5 dark:from-indigo-950/20 dark:to-purple-950/20 border border-indigo-100 dark:border-indigo-900/30 rounded-3xl p-6 shadow-sm flex flex-col items-center justify-center text-center relative gap-3">
+                    
+                    {/* Interactive quote refresh button placed elegantly in top left corner */}
+                    <button
+                      onClick={() => {
+                        const filtered = STUDY_QUOTES.filter(q => q !== activeQuote);
+                        const randomIdx = Math.floor(Math.random() * filtered.length);
+                        setActiveQuote(filtered[randomIdx]);
+                      }}
+                      className="absolute left-4 top-4 p-2 bg-white dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-slate-700 border border-slate-100 dark:border-slate-800 rounded-xl transition shadow-sm text-indigo-600 dark:text-indigo-400 cursor-pointer flex items-center justify-center"
+                      title="تغيير الحكمة"
+                    >
+                      <RotateCcw className="w-4 h-4" />
+                    </button>
+
+                    <div className="flex flex-col items-center max-w-2xl mx-auto space-y-2">
+                      <div className="flex items-center gap-1.5 bg-indigo-50 dark:bg-indigo-950/50 px-3.5 py-1 rounded-full border border-indigo-100/50 dark:border-indigo-900/20">
+                        <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
+                        <span className="text-xs font-black tracking-wide text-indigo-600 dark:text-indigo-400">حكمة اليوم</span>
+                      </div>
+                      <p className="text-sm md:text-base font-extrabold text-slate-800 dark:text-indigo-200 italic leading-relaxed text-center px-6">
+                        "{activeQuote}"
+                      </p>
+                    </div>
+                  </div>
+                )}
+
                 {/* Hero Card Banner */}
                 <div className="gradient-primary rounded-3xl p-8 md:p-12 text-white mb-8 shadow-xl relative overflow-hidden">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_50%)] pointer-events-none" />
@@ -1585,21 +1694,26 @@ export default function App() {
                   
                   return (
                     <div>
-                      <div className="gradient-primary text-white rounded-3xl p-8 mb-8 shadow-xl">
-                        <h2 className="text-3xl font-black mb-1">{appState.subject.icon} {appState.subject.name}</h2>
-                        <p className="opacity-90 text-sm font-medium">
-                          {appState.grade.name} • {appState.term.name} • {appState.stream.name} {appState.program ? `• ${appState.program.name}` : ''}
-                        </p>
-                      </div>
-
-                      <h3 className="text-2xl font-black mb-6 text-gray-800 dark:text-white flex items-center gap-2">
-                        <span>📚</span> الوحدات الدراسية
-                      </h3>
-                      <div className="gradient-primary text-white rounded-3xl p-8 mb-8 shadow-xl">
-                        <h2 className="text-3xl font-black mb-1">{appState.subject.icon} {appState.subject.name}</h2>
-                        <p className="opacity-90 text-sm font-medium">
-                          {appState.grade.name} • {appState.term.name} • {appState.stream.name} {appState.program ? `• ${appState.program.name}` : ''}
-                        </p>
+                      <div className="gradient-primary text-white rounded-3xl p-6 md:p-8 mb-8 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div>
+                          <h2 className="text-3xl font-black mb-1">{appState.subject.icon} {appState.subject.name}</h2>
+                          <p className="opacity-90 text-sm font-medium">
+                            {appState.grade.name} • {appState.term.name} • {appState.stream.name} {appState.program ? `• ${appState.program.name}` : ''}
+                          </p>
+                        </div>
+                        
+                        {/* Student Book Link */}
+                        <a 
+                          href={getStudentBookUrl() || `https://www.google.com/search?q=${encodeURIComponent(`كتاب الطالب ${appState.subject.name} الصف ${appState.grade.name} ${appState.term.name} منهج ${appState.stream.name} pdf`)}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="bg-white/10 hover:bg-white/20 p-3 rounded-2xl border border-white/20 backdrop-blur-md transition flex items-center gap-2 text-xs font-black cursor-pointer shadow-md select-none w-full md:w-auto text-center justify-center shrink-0"
+                          title="تحميل كتاب الطالب"
+                        >
+                          <span className="text-lg">📖</span>
+                          <span>{isEnglish ? "Student Book (PDF)" : "كتاب الطالب المنهجي (PDF)"}</span>
+                          <span className="text-[10px] bg-white/20 px-2 py-0.5 rounded-full">↗</span>
+                        </a>
                       </div>
 
                       <h3 className="text-2xl font-black mb-6 text-gray-800 dark:text-white flex items-center gap-2">
@@ -1706,9 +1820,21 @@ export default function App() {
                                 <button
                                   onClick={(e) => {
                                     e.stopPropagation();
+                                    setActiveVideoLesson(l);
+                                  }}
+                                  className="flex items-center gap-1.5 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/30 dark:hover:bg-rose-950/60 text-rose-600 dark:text-rose-400 py-2 px-3.5 rounded-xl text-xs font-black transition-colors shrink-0 cursor-pointer"
+                                  title="فيديو الشرح"
+                                >
+                                  <span className="text-sm">🎥</span>
+                                  <span>فيديو الشرح</span>
+                                </button>
+
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
                                     toggleFavorite(l, appState.unit!);
                                   }}
-                                  className="favorite-btn text-2xl p-2 focus:outline-none hover:scale-110 active:scale-95 transition"
+                                  className="favorite-btn text-2xl p-2 focus:outline-none hover:scale-110 active:scale-95 transition cursor-pointer"
                                   title="المفضلة"
                                 >
                                   {isFav ? '❤️' : '🤍'}
@@ -2106,6 +2232,20 @@ export default function App() {
                               )}
                             </div>
 
+                            {/* Video Explanation Button */}
+                            <div>
+                              <button
+                                onClick={() => {
+                                  setActiveVideoLesson(appState.lesson);
+                                }}
+                                className="w-full bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white py-4 rounded-2xl font-black transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                              >
+                                <span className="text-xl">🎥</span>
+                                <span>{isEnglish ? 'Watch Video Explanation' : 'شاهد فيديو الشرح'}</span>
+                                <span className="text-sm">↗</span>
+                              </button>
+                            </div>
+
                             <div>
                               <button
                                 onClick={() => {
@@ -2469,6 +2609,22 @@ export default function App() {
         dailyReminderMsg={dailyReminderMsg}
         goHome={goHome}
         showToastMsg={showToastMsg}
+      />
+
+      {/* MODAL 9: INSTALL APP SHORTCUT GUIDE */}
+      <InstallAppModal
+        isOpen={showInstallModal}
+        onClose={() => setShowInstallModal(false)}
+        installPrompt={installPrompt}
+        handleInstallPWA={handleInstallPWA}
+      />
+
+      {/* MODAL 10: VIDEO EXPLANATION PLAYER */}
+      <VideoPlayerModal
+        isOpen={!!activeVideoLesson}
+        onClose={() => setActiveVideoLesson(null)}
+        lessonTitle={activeVideoLesson?.title || ''}
+        videoUrl={activeVideoLesson?.videoUrl || ''}
       />
 
     </div>
