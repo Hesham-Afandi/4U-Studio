@@ -5,181 +5,153 @@ export const math9AdvInspire1: Curriculum = {
   units: [
     {
       id: 1,
-      name: 'Module 1: Expressions',
-      icon: '',
+      name: 'Module 1: Relationships in Triangles',
+      icon: '🔺',
       color: 'from-blue-500 to-indigo-600',
-      description: 'Study numerical and algebraic expressions, properties of real numbers, distributive property, and absolute value.',
+      description: 'Explore relationships formed by perpendicular bisectors, angle bisectors, medians, altitudes, and inequalities in triangles.',
       lessons: [
         {
           id: 1,
-          title: 'Lesson 1-1: Numerical Expressions',
-          icon: '📊',
+          title: 'Lesson 1-1: Perpendicular Bisectors',
+          icon: '',
           duration: '50 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-1.1/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-1.1-exam/',
           lessonTitle: '📖 Lesson Explanation',
           examTitle: '📝 Take the Quiz',
           content: {
-            intro: 'Numerical expressions involve numbers and operations. We learn the order of operations to evaluate them correctly.',
+            intro: 'A perpendicular bisector is a line that is perpendicular to a segment and passes through its midpoint.',
             sections: [
-              { title: 'Order of Operations (PEMDAS)', type: 'bullets', content: [
-                'P: Parentheses (grouping symbols)',
-                'E: Exponents',
-                'M/D: Multiplication/Division (left to right)',
-                'A/S: Addition/Subtraction (left to right)'
-              ]},
-              { title: 'Examples', type: 'bullets', content: [
-                '3 + 4 × 2 = 3 + 8 = 11',
-                '(3 + 4) × 2 = 7 × 2 = 14',
-                '2³ + 5 = 8 + 5 = 13',
-                '12 ÷ 3 × 2 = 4 × 2 = 8'
+              { title: 'Perpendicular Bisector Theorem', type: 'formula', content: 'If a point is on the perpendicular bisector of a segment, then it is equidistant from the endpoints.' },
+              { title: 'Converse', type: 'formula', content: 'If a point is equidistant from the endpoints, then it is on the perpendicular bisector.' },
+              { title: 'Circumcenter', type: 'bullets', content: [
+                'Point of concurrency of perpendicular bisectors',
+                'Equidistant from the three vertices',
+                'Center of circumscribed circle'
               ]}
             ]
           }
         },
         {
           id: 2,
-          title: 'Lesson 1-2: Algebraic Expressions',
-          icon: '🔤',
+          title: 'Lesson 1-2: Angle Bisectors',
+          icon: '∠',
           duration: '50 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-1.2/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-1.2-exam/',
-          lessonTitle: '📖 Lesson Explanation',
-          examTitle: '📝 Take the Quiz',
+          lessonTitle: ' Lesson Explanation',
+          examTitle: ' Take the Quiz',
           content: {
-            intro: 'Algebraic expressions contain variables, numbers, and operations. We learn to evaluate and simplify them.',
+            intro: 'An angle bisector divides an angle into two congruent angles.',
             sections: [
-              { title: 'Variables and Terms', type: 'bullets', content: [
-                'Variable: letter representing unknown (x, y, a)',
-                'Term: part separated by + or -',
-                'Coefficient: number in front of variable'
-              ]},
-              { title: 'Evaluating Expressions', type: 'bullets', content: [
-                'Substitute values for variables',
-                'Follow order of operations',
-                'If x = 3, then 2x + 5 = 2(3) + 5 = 11'
-              ]},
-              { title: 'Examples', type: 'bullets', content: [
-                '3x + 2y when x=4, y=2: 3(4) + 2(2) = 16',
-                'x² - 3x when x=5: 25 - 15 = 10'
+              { title: 'Angle Bisector Theorem', type: 'formula', content: 'If a point is on the bisector of an angle, then it is equidistant from the sides of the angle.' },
+              { title: 'Incenter', type: 'bullets', content: [
+                'Point of concurrency of angle bisectors',
+                'Equidistant from the three sides',
+                'Center of inscribed circle'
               ]}
             ]
           }
         },
         {
           id: 3,
-          title: 'Lesson 1-3: Properties of Real Numbers',
-          icon: '⚙️',
+          title: 'Lesson 1-3: Medians and Altitudes of Triangles',
+          icon: '',
           duration: '55 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-1.3/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-1.3-exam/',
           lessonTitle: '📖 Lesson Explanation',
           examTitle: '📝 Take the Quiz',
           content: {
-            intro: 'Real numbers have important properties that help simplify expressions.',
+            intro: 'Medians connect vertices to midpoints. Altitudes are perpendicular segments from vertices.',
             sections: [
-              { title: 'Commutative Property', type: 'bullets', content: [
-                'Addition: a + b = b + a',
-                'Multiplication: a × b = b × a'
+              { title: 'Centroid', type: 'bullets', content: [
+                'Point of concurrency of medians',
+                'Divides each median in 2:1 ratio',
+                'Center of gravity'
               ]},
-              { title: 'Associative Property', type: 'bullets', content: [
-                'Addition: (a + b) + c = a + (b + c)',
-                'Multiplication: (a × b) × c = a × (b × c)'
-              ]},
-              { title: 'Identity Properties', type: 'bullets', content: [
-                'Addition: a + 0 = a',
-                'Multiplication: a × 1 = a'
-              ]},
-              { title: 'Inverse Properties', type: 'bullets', content: [
-                'Addition: a + (-a) = 0',
-                'Multiplication: a × (1/a) = 1 (a ≠ 0)'
+              { title: 'Orthocenter', type: 'bullets', content: [
+                'Point of concurrency of altitudes',
+                'Can be inside, outside, or on triangle'
               ]}
             ]
           }
         },
         {
           id: 4,
-          title: 'Lesson 1-4: Distributive Property',
-          icon: '',
+          title: 'Lesson 1-4: Inequalities in One Triangle',
+          icon: '⚖️',
           duration: '50 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-1.4/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-1.4-exam/',
           lessonTitle: '📖 Lesson Explanation',
           examTitle: '📝 Take the Quiz',
           content: {
-            intro: 'The distributive property allows us to multiply a number by a sum or difference.',
+            intro: 'Triangle inequalities relate angle and side measures.',
             sections: [
-              { title: 'Distributive Property', type: 'formula', content: 'a(b + c) = ab + ac' },
-              { title: 'Examples', type: 'bullets', content: [
-                '3(x + 5) = 3x + 15',
-                '2(4y - 7) = 8y - 14',
-                '-5(a + 3) = -5a - 15',
-                'x(x + 2) = x² + 2x'
+              { title: 'Angle-Side Relationship', type: 'bullets', content: [
+                'Longer side ↔ Larger angle',
+                'Shorter side ↔ Smaller angle'
               ]},
-              { title: 'Simplifying', type: 'bullets', content: [
-                'Distribute first',
-                'Combine like terms',
-                '2(x + 3) + 4(x - 1) = 2x + 6 + 4x - 4 = 6x + 2'
-              ]}
+              { title: 'Triangle Inequality', type: 'formula', content: 'a + b > c, a + c > b, b + c > a' }
             ]
           }
         },
         {
           id: 5,
-          title: 'Lesson 1-5: Expressions Involving Absolute Value',
-          icon: '| |',
-          duration: '55 min',
+          title: 'Lesson 1-5: Indirect Proof',
+          icon: '🔀',
+          duration: '50 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-1.5/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-1.5-exam/',
           lessonTitle: '📖 Lesson Explanation',
           examTitle: '📝 Take the Quiz',
           content: {
-            intro: 'Absolute value represents distance from zero on a number line.',
+            intro: 'Indirect proof assumes the opposite and shows it leads to contradiction.',
             sections: [
-              { title: 'Definition', type: 'bullets', content: [
-                '|x| = x if x ≥ 0',
-                '|x| = -x if x < 0',
-                '|5| = 5 and |-5| = 5'
-              ]},
-              { title: 'Distance on Number Line', type: 'bullets', content: [
-                'Distance between a and b: |a - b|',
-                'Distance from -3 to 5: |5 - (-3)| = |8| = 8'
-              ]},
-              { title: 'Examples', type: 'bullets', content: [
-                '|3 - 7| = |-4| = 4',
-                '|x| = 5 means x = 5 or x = -5',
-                '|2x - 3| when x = 4: |8 - 3| = |5| = 5'
+              { title: 'Steps', type: 'bullets', content: [
+                '1. Assume opposite of what to prove',
+                '2. Use logical reasoning',
+                '3. Arrive at contradiction',
+                '4. Conclude assumption is false'
               ]}
             ]
           }
         },
         {
           id: 6,
-          title: 'Lesson 1-6: Descriptive Modeling and Accuracy',
+          title: 'Lesson 1-6: The Triangle Inequality',
           icon: '📐',
           duration: '50 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-1.6/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-1.6-exam/',
-          lessonTitle: '📖 Lesson Explanation',
-          examTitle: '📝 Take the Quiz',
+          lessonTitle: ' Lesson Explanation',
+          examTitle: ' Take the Quiz',
           content: {
-            intro: 'We use expressions to model real-world situations with appropriate accuracy.',
+            intro: 'The Triangle Inequality Theorem states relationships among side lengths.',
             sections: [
-              { title: 'Modeling', type: 'bullets', content: [
-                'Translate words to expressions',
-                'Choose appropriate variables',
-                'Consider units'
-              ]},
-              { title: 'Accuracy', type: 'bullets', content: [
-                'Round appropriately',
-                'Consider significant figures',
-                'Check reasonableness'
-              ]},
-              { title: 'Examples', type: 'bullets', content: [
-                'Cost = price × quantity',
-                'Distance = rate × time',
-                'Perimeter = 2l + 2w'
+              { title: 'Theorem', type: 'formula', content: 'Sum of any two sides > third side' },
+              { title: 'Applications', type: 'bullets', content: [
+                'Determine if three lengths form triangle',
+                'Find range for third side'
               ]}
+            ]
+          }
+        },
+        {
+          id: 7,
+          title: 'Lesson 1-7: Inequalities in Two Triangles',
+          icon: '🔺',
+          duration: '55 min',
+          lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-1.7/',
+          examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-1.7-exam/',
+          lessonTitle: ' Lesson Explanation',
+          examTitle: ' Take the Quiz',
+          content: {
+            intro: 'Compare triangles using inequality theorems.',
+            sections: [
+              { title: 'Hinge Theorem (SAS)', type: 'formula', content: 'If two sides congruent and included angle larger, then third side longer.' },
+              { title: 'Converse (SSS)', type: 'formula', content: 'If two sides congruent and third side longer, then included angle larger.' }
             ]
           }
         }
@@ -187,190 +159,135 @@ export const math9AdvInspire1: Curriculum = {
     },
     {
       id: 2,
-      name: 'Module 2: Equations in One Variable',
-      icon: '⚖️',
-      color: 'from-green-500 to-teal-600',
-      description: 'Study writing, solving, and interpreting equations including one-step, multi-step, absolute value, and proportions.',
+      name: 'Module 2: Quadrilaterals',
+      icon: '⬜',
+      color: 'from-purple-500 to-pink-600',
+      description: 'Study angles of polygons, properties of parallelograms, rectangles, rhombi, squares, trapezoids, and kites.',
       lessons: [
         {
           id: 1,
-          title: 'Lesson 2-1: Writing and Interpreting Equations',
-          icon: '✍️',
+          title: 'Lesson 2-1: Angles of Polygons',
+          icon: '📐',
           duration: '50 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-2.1/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-2.1-exam/',
-          lessonTitle: '📖 Lesson Explanation',
-          examTitle: '📝 Take the Quiz',
+          lessonTitle: ' Lesson Explanation',
+          examTitle: ' Take the Quiz',
           content: {
-            intro: 'We translate real-world situations into mathematical equations.',
+            intro: 'Polygons have interior and exterior angles with specific relationships.',
             sections: [
-              { title: 'Key Words', type: 'bullets', content: [
-                'Sum, increased by: +',
-                'Difference, decreased by: -',
-                'Product, times: ×',
-                'Quotient, divided by: ÷',
-                'Is, equals: ='
-              ]},
-              { title: 'Examples', type: 'bullets', content: [
-                'A number increased by 5: x + 5',
-                'Twice a number minus 3: 2x - 3',
-                'The sum of consecutive numbers: x + (x+1)',
-                'Three times a number plus 7: 3x + 7'
-              ]}
+              { title: 'Interior Angle Sum', type: 'formula', content: 'S = (n - 2) × 180°' },
+              { title: 'Exterior Angle Sum', type: 'formula', content: 'Sum = 360° for any polygon' }
             ]
           }
         },
         {
           id: 2,
-          title: 'Lesson 2-2: Solving One-Step Equations',
-          icon: '1️⃣',
-          duration: '50 min',
+          title: 'Lesson 2-2: Parallelograms',
+          icon: '',
+          duration: '55 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-2.2/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-2.2-exam/',
           lessonTitle: '📖 Lesson Explanation',
           examTitle: '📝 Take the Quiz',
           content: {
-            intro: 'One-step equations require one operation to solve.',
+            intro: 'A parallelogram has both pairs of opposite sides parallel.',
             sections: [
-              { title: 'Addition Equations', type: 'bullets', content: [
-                'x + 5 = 12',
-                'Subtract 5 from both sides',
-                'x = 7'
-              ]},
-              { title: 'Subtraction Equations', type: 'bullets', content: [
-                'x - 3 = 8',
-                'Add 3 to both sides',
-                'x = 7'
+              { title: 'Properties', type: 'bullets', content: [
+                'Opposite sides parallel and congruent',
+                'Opposite angles congruent',
+                'Consecutive angles supplementary',
+                'Diagonals bisect each other'
               ]}
             ]
           }
         },
         {
           id: 3,
-          title: 'Lesson 2-3: Solving Multi-Step Equations',
-          icon: '🔢',
-          duration: '55 min',
+          title: 'Lesson 2-3: Tests for Parallelograms',
+          icon: '✓',
+          duration: '50 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-2.3/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-2.3-exam/',
           lessonTitle: '📖 Lesson Explanation',
           examTitle: '📝 Take the Quiz',
           content: {
-            intro: 'Multi-step equations require more than two operations to solve.',
+            intro: 'Several ways to prove a quadrilateral is a parallelogram.',
             sections: [
-              { title: 'Steps', type: 'bullets', content: [
-                '1. Distribute if needed',
-                '2. Combine like terms',
-                '3. Move variables to one side',
-                '4. Solve for variable'
-              ]},
-              { title: 'Examples', type: 'bullets', content: [
-                '2x + 5 = 13 ⇒ 2x = 8 ⇒ x = 4',
-                '3(x - 2) = 15 ⇒ 3x - 6 = 15 ⇒ 3x = 21 ⇒ x = 7',
-                '4x + 3 = 2x + 11 ⇒ 2x = 8 ⇒ x = 4'
+              { title: 'Tests', type: 'bullets', content: [
+                'Both pairs opposite sides parallel',
+                'Both pairs opposite sides congruent',
+                'Both pairs opposite angles congruent',
+                'Diagonals bisect each other',
+                'One pair both parallel and congruent'
               ]}
             ]
           }
         },
         {
           id: 4,
-          title: 'Lesson 2-4: Solving Equations with the Variable on Each Side',
-          icon: '⚖️',
+          title: 'Lesson 2-4: Rectangles',
+          icon: '',
           duration: '50 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-2.4/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-2.4-exam/',
           lessonTitle: '📖 Lesson Explanation',
           examTitle: '📝 Take the Quiz',
           content: {
-            intro: 'When variable appears on both sides, we collect variables on one side.',
+            intro: 'A rectangle is a parallelogram with four right angles.',
             sections: [
-              { title: 'Strategy', type: 'bullets', content: [
-                'Move all variables to one side',
-                'Move constants to other side',
-                'Solve for variable'
-              ]},
-              { title: 'Examples', type: 'bullets', content: [
-                '3x + 5 = x + 11 ⇒ 2x = 6 ⇒ x = 3',
-                '5x - 2 = 2x + 10 ⇒ 3x = 12 ⇒ x = 4',
-                '7x + 3 = 4x - 9 ⇒ 3x = -12 ⇒ x = -4'
+              { title: 'Properties', type: 'bullets', content: [
+                'All properties of parallelogram',
+                'All angles 90°',
+                'Diagonals congruent'
               ]}
             ]
           }
         },
         {
           id: 5,
-          title: 'Lesson 2-5: Solving Equations Involving Absolute Value',
-          icon: '| |',
+          title: 'Lesson 2-5: Rhombi and Squares',
+          icon: '◆',
           duration: '55 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-2.5/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-2.5-exam/',
           lessonTitle: '📖 Lesson Explanation',
           examTitle: '📝 Take the Quiz',
           content: {
-            intro: 'Absolute value equations have two possible solutions.',
+            intro: 'A rhombus has four congruent sides. A square has four congruent sides and four right angles.',
             sections: [
-              { title: 'Solving Method', type: 'bullets', content: [
-                '|x| = a means x = a or x = -a',
-                '|x - 3| = 5 means x - 3 = 5 or x - 3 = -5',
-                'x = 8 or x = -2'
+              { title: 'Rhombus', type: 'bullets', content: [
+                'All sides congruent',
+                'Diagonals perpendicular',
+                'Diagonals bisect angles'
               ]},
-              { title: 'Examples', type: 'bullets', content: [
-                '|x| = 7 ⇒ x = 7 or x = -7',
-                '|2x + 1| = 9 ⇒ 2x + 1 = 9 or 2x + 1 = -9',
-                'x = 4 or x = -5'
+              { title: 'Square', type: 'bullets', content: [
+                'All properties of rhombus',
+                'All properties of rectangle',
+                '4 lines of symmetry'
               ]}
             ]
           }
         },
         {
           id: 6,
-          title: 'Lesson 2-6: Solving Proportions',
-          icon: '📊',
-          duration: '50 min',
+          title: 'Lesson 2-6: Trapezoids and Kites',
+          icon: '🪁',
+          duration: '55 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-2.6/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-2.6-exam/',
-          lessonTitle: '📖 Lesson Explanation',
-          examTitle: '📝 Take the Quiz',
+          lessonTitle: ' Lesson Explanation',
+          examTitle: ' Take the Quiz',
           content: {
-            intro: 'Proportions are equations stating two ratios are equal.',
+            intro: 'Trapezoids have one pair of parallel sides. Kites have two pairs of consecutive congruent sides.',
             sections: [
-              { title: 'Proportion', type: 'formula', content: 'a/b = c/d' },
-              { title: 'Cross Multiplication', type: 'formula', content: 'If a/b = c/d then ad = bc' },
-              { title: 'Examples', type: 'bullets', content: [
-                '2/3 = 4/6 (because 2×6 = 3×4)',
-                'x/5 = 3/15 ⇒ x = 1',
-                '3/x = 9/12 ⇒ 36 = 9x ⇒ x = 4'
-              ]}
-            ]
-          }
-        },
-        {
-          id: 7,
-          title: 'Lesson 2-7: Using Formulas',
-          icon: '📐',
-          duration: '55 min',
-          lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-2.7/',
-          examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-2.7-exam/',
-          lessonTitle: '📖 Lesson Explanation',
-          examTitle: '📝 Take the Quiz',
-          content: {
-            intro: 'Formulas are literal equations with multiple variables.',
-            sections: [
-              { title: 'Solving for a Variable', type: 'bullets', content: [
-                'Isolate the desired variable',
-                'Example: P = 2l + 2w, solve for l',
-                'P - 2w = 2l',
-                'l = (P - 2w)/2'
+              { title: 'Trapezoid', type: 'bullets', content: [
+                'Exactly one pair parallel sides',
+                'Isosceles: legs congruent'
               ]},
-              { title: 'Common Formulas', type: 'bullets', content: [
-                'A = lw (area of rectangle)',
-                'd = rt (distance)',
-                'V = lwh (volume)',
-                'F = ma (force)'
-              ]},
-              { title: 'Examples', type: 'bullets', content: [
-                'A = lw ⇒ l = A/w',
-                'd = rt ⇒ t = d/r',
-                'V = lwh ⇒ h = V/(lw)'
+              { title: 'Kite', type: 'bullets', content: [
+                'Two pairs consecutive sides congruent',
+                'Diagonals perpendicular'
               ]}
             ]
           }
@@ -379,393 +296,119 @@ export const math9AdvInspire1: Curriculum = {
     },
     {
       id: 3,
-      name: 'Module 3: Relations and Functions',
-      icon: '📊',
-      color: 'from-purple-500 to-pink-600',
-      description: 'Study relations, functions, graphs, intercepts, and comparing different types of functions.',
+      name: 'Module 3: Similarity',
+      icon: '🔍',
+      color: 'from-green-500 to-teal-600',
+      description: 'Explore dilations, similar polygons, triangle similarity criteria (AA, SSS, SAS), and proportionality.',
       lessons: [
         {
           id: 1,
-          title: 'Lesson 3-1: Representing Relations',
-          icon: '🔗',
+          title: 'Lesson 3-1: Dilations',
+          icon: '',
           duration: '50 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-3.1/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-3.1-exam/',
           lessonTitle: '📖 Lesson Explanation',
           examTitle: '📝 Take the Quiz',
           content: {
-            intro: 'Relations are sets of ordered pairs that can be represented in multiple ways.',
+            intro: 'A dilation changes size but not shape.',
             sections: [
-              { title: 'Ordered Pair', type: 'formula', content: '(x, y) where x is input, y is output' },
-              { title: 'Domain', type: 'bullets', content: [
-                'Set of all x-values',
-                'First coordinates'
+              { title: 'Scale Factor', type: 'bullets', content: [
+                'k > 1: enlargement',
+                '0 < k < 1: reduction',
+                'Preserves angle measures'
               ]},
-              { title: 'Range', type: 'bullets', content: [
-                'Set of all y-values',
-                'Second coordinates'
-              ]},
-              { title: 'Representations', type: 'bullets', content: [
-                'Table',
-                'Graph',
-                'Set of ordered pairs',
-                'Mapping diagram'
-              ]},
-              { title: 'Example', type: 'bullets', content: [
-                '{(1, 2), (3, 4), (5, 6)}',
-                'Domain: {1, 3, 5}',
-                'Range: {2, 4, 6}'
-              ]}
+              { title: 'Coordinate Notation', type: 'formula', content: '(x, y) → (kx, ky)' }
             ]
           }
         },
         {
           id: 2,
-          title: 'Lesson 3-2: Functions',
-          icon: 'ƒ',
-          duration: '55 min',
+          title: 'Lesson 3-2: Similar Polygons',
+          icon: '◐',
+          duration: '50 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-3.2/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-3.2-exam/',
           lessonTitle: '📖 Lesson Explanation',
           examTitle: '📝 Take the Quiz',
           content: {
-            intro: 'A function is a special relation where each input has exactly one output.',
+            intro: 'Similar polygons have same shape but not necessarily same size.',
             sections: [
-              { title: 'Definition', type: 'bullets', content: [
-                'Each x has exactly one y',
-                'Vertical Line Test: if vertical line crosses graph more than once, not a function'
-              ]},
-              { title: 'Function Notation', type: 'formula', content: 'f(x) = 2x + 3' },
-              { title: 'Evaluating Functions', type: 'bullets', content: [
-                'Substitute x value',
-                'If f(x) = 2x + 3, then f(4) = 2(4) + 3 = 11'
-              ]},
-              { title: 'Examples', type: 'bullets', content: [
-                '{(1, 2), (2, 4), (3, 6)} is a function',
-                '{(1, 2), (1, 3), (2, 4)} is NOT a function (1 has two outputs)'
+              { title: 'Properties', type: 'bullets', content: [
+                'Corresponding angles congruent',
+                'Corresponding sides proportional',
+                'Perimeter ratio = scale factor',
+                'Area ratio = scale factor²'
               ]}
             ]
           }
         },
         {
           id: 3,
-          title: 'Lesson 3-3: Linearity and Continuity of Graphs',
-          icon: '📈',
-          duration: '50 min',
+          title: 'Lesson 3-3: Similar Triangles: AA Similarity',
+          icon: '△',
+          duration: '55 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-3.3/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-3.3-exam/',
-          lessonTitle: '📖 Lesson Explanation',
-          examTitle: '📝 Take the Quiz',
+          lessonTitle: ' Lesson Explanation',
+          examTitle: ' Take the Quiz',
           content: {
-            intro: 'Graphs can be linear (straight line) or nonlinear, continuous or discrete.',
+            intro: 'AA Similarity: If two angles congruent, triangles are similar.',
             sections: [
-              { title: 'Linear vs Nonlinear', type: 'bullets', content: [
-                'Linear: straight line, constant rate',
-                'Nonlinear: curved, changing rate'
-              ]},
-              { title: 'Continuous vs Discrete', type: 'bullets', content: [
-                'Continuous: unbroken line (can have any value)',
-                'Discrete: separate points (only specific values)'
-              ]},
-              { title: 'Examples', type: 'bullets', content: [
-                'Continuous: temperature over time',
-                'Discrete: number of students'
-              ]}
+              { title: 'AA Similarity Postulate', type: 'formula', content: 'If A ≅ ∠D and ∠B ≅ ∠E, then △ABC ~ △DEF' }
             ]
           }
         },
         {
           id: 4,
-          title: 'Lesson 3-4: Intercepts of Graphs',
-          icon: '📍',
-          duration: '50 min',
+          title: 'Lesson 3-4: Similar Triangles: SSS and SAS Similarity',
+          icon: '📏',
+          duration: '55 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-3.4/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-3.4-exam/',
           lessonTitle: '📖 Lesson Explanation',
-          examTitle: '📝 Take the Quiz',
+          examTitle: ' Take the Quiz',
           content: {
-            intro: 'Intercepts are points where graph crosses axes.',
+            intro: 'SSS and SAS provide additional ways to prove triangles similar.',
             sections: [
-              { title: 'x-intercept', type: 'bullets', content: [
-                'Where graph crosses x-axis',
-                'y = 0',
-                'Set y = 0 and solve for x'
-              ]},
-              { title: 'y-intercept', type: 'bullets', content: [
-                'Where graph crosses y-axis',
-                'x = 0',
-                'Set x = 0 and solve for y'
-              ]},
-              { title: 'Examples', type: 'bullets', content: [
-                'y = 2x + 4: y-intercept = 4',
-                'x-intercept: 0 = 2x + 4 ⇒ x = -2'
-              ]}
+              { title: 'SSS Similarity', type: 'formula', content: 'If corresponding sides proportional, triangles similar.' },
+              { title: 'SAS Similarity', type: 'formula', content: 'If two sides proportional and included angle congruent, triangles similar.' }
             ]
           }
         },
         {
           id: 5,
-          title: 'Lesson 3-5: Shapes of Graphs',
-          icon: '📊',
-          duration: '55 min',
+          title: 'Lesson 3-5: Triangle Proportionality',
+          icon: '⚖️',
+          duration: '50 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-3.5/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-3.5-exam/',
           lessonTitle: '📖 Lesson Explanation',
           examTitle: '📝 Take the Quiz',
           content: {
-            intro: 'Different functions have different graph shapes.',
+            intro: 'A line parallel to one side creates proportional segments.',
             sections: [
-              { title: 'Increasing/Decreasing', type: 'bullets', content: [
-                'Increasing: y rises as x increases',
-                'Decreasing: y falls as x increases',
-                'Constant: y stays the same'
-              ]},
-              { title: 'Relative High and Low Points', type: 'bullets', content: [
-                'Maximum: highest point',
-                'Minimum: lowest point'
-              ]},
-              { title: 'Symmetry', type: 'bullets', content: [
-                'Line symmetry: mirror image',
-                'Common in parabolas'
-              ]}
+              { title: 'Triangle Proportionality', type: 'formula', content: 'If DE || BC, then AD/DB = AE/EC' }
             ]
           }
         },
         {
           id: 6,
-          title: 'Lesson 3-6: Sketching Graphs and Comparing Functions',
-          icon: '📉',
-          duration: '55 min',
+          title: 'Lesson 3-6: Parts of Similar Triangles',
+          icon: '📊',
+          duration: '50 min',
           lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-3.6/',
           examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-3.6-exam/',
           lessonTitle: '📖 Lesson Explanation',
-          examTitle: '📝 Take the Quiz',
+          examTitle: ' Take the Quiz',
           content: {
-            intro: 'We sketch graphs from descriptions and compare different functions.',
+            intro: 'Corresponding parts of similar triangles are proportional.',
             sections: [
-              { title: 'Sketching from Description', type: 'bullets', content: [
-                'Identify key features',
-                'Mark intercepts',
-                'Show increasing/decreasing',
-                'Label axes'
-              ]},
-              { title: 'Comparing Functions', type: 'bullets', content: [
-                'Compare rates of change',
-                'Compare intercepts',
-                'Compare maximum/minimum values'
-              ]}
-            ]
-          }
-        }
-      ]
-    },
-    {
-      id: 4,
-      name: 'Module 4: Linear and Nonlinear Functions',
-      icon: '📐',
-      color: 'from-orange-500 to-red-600',
-      description: 'Study graphing linear functions, slope, transformations, sequences, and piecewise functions.',
-      lessons: [
-        {
-          id: 1,
-          title: 'Lesson 4-1: Graphing Linear Functions',
-          icon: '📈',
-          duration: '55 min',
-          lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-4.1/',
-          examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-4.1-exam/',
-          lessonTitle: '📖 Lesson Explanation',
-          examTitle: '📝 Take the Quiz',
-          content: {
-            intro: 'Linear functions graph as straight lines.',
-            sections: [
-              { title: 'Table Method', type: 'bullets', content: [
-                'Choose x values',
-                'Calculate y values',
-                'Plot points',
-                'Connect with line'
-              ]},
-              { title: 'Example', type: 'bullets', content: [
-                'y = 2x + 1',
-                'x = 0 ⇒ y = 1',
-                'x = 1 ⇒ y = 3',
-                'x = 2 ⇒ y = 5'
-              ]},
-              { title: 'Two Points', type: 'bullets', content: [
-                'Only need 2 points to graph a line',
-                'Use intercepts or any points'
-              ]}
-            ]
-          }
-        },
-        {
-          id: 2,
-          title: 'Lesson 4-2: Rate of Change and Slope',
-          icon: '📉',
-          duration: '55 min',
-          lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-4.2/',
-          examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-4.2-exam/',
-          lessonTitle: '📖 Lesson Explanation',
-          examTitle: '📝 Take the Quiz',
-          content: {
-            intro: 'Slope measures the rate of change of y with respect to x.',
-            sections: [
-              { title: 'Slope Formula', type: 'formula', content: 'm = (y₂ - y₁)/(x₂ - x₁)' },
-              { title: 'Types of Slope', type: 'bullets', content: [
-                'Positive: line rises',
-                'Negative: line falls',
-                'Zero: horizontal line',
-                'Undefined: vertical line'
-              ]},
-              { title: 'Example', type: 'bullets', content: [
-                'Points (2, 3) and (5, 9)',
-                'm = (9-3)/(5-2) = 6/3 = 2'
-              ]}
-            ]
-          }
-        },
-        {
-          id: 3,
-          title: 'Lesson 4-3: Slope-Intercept Form',
-          icon: '📊',
-          duration: '50 min',
-          lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-4.3/',
-          examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-4.3-exam/',
-          lessonTitle: '📖 Lesson Explanation',
-          examTitle: '📝 Take the Quiz',
-          content: {
-            intro: 'Slope-intercept form is y = mx + b.',
-            sections: [
-              { title: 'Formula', type: 'formula', content: 'y = mx + b' },
-              { title: 'Components', type: 'bullets', content: [
-                'm: slope',
-                'b: y-intercept'
-              ]},
-              { title: 'Graphing', type: 'bullets', content: [
-                'Start at (0, b)',
-                'Use slope to find next point',
-                'Example: y = 2x + 3, start at (0, 3), slope 2 means up 2, right 1'
-              ]}
-            ]
-          }
-        },
-        {
-          id: 4,
-          title: 'Lesson 4-4: Transformations of Linear Functions',
-          icon: '🔄',
-          duration: '55 min',
-          lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-4.4/',
-          examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-4.4-exam/',
-          lessonTitle: '📖 Lesson Explanation',
-          examTitle: '📝 Take the Quiz',
-          content: {
-            intro: 'Linear functions can be transformed by translations, reflections, and stretches.',
-            sections: [
-              { title: 'Vertical Translation', type: 'bullets', content: [
-                'y = f(x) + k: up k units',
-                'y = f(x) - k: down k units'
-              ]},
-              { title: 'Horizontal Translation', type: 'bullets', content: [
-                'y = f(x - h): right h units',
-                'y = f(x + h): left h units'
-              ]},
-              { title: 'Reflection', type: 'bullets', content: [
-                'y = -f(x): reflection over x-axis',
-                'y = f(-x): reflection over y-axis'
-              ]},
-              { title: 'Stretch/Compression', type: 'bullets', content: [
-                'y = af(x): vertical stretch if |a| > 1',
-                'y = af(x): compression if 0 < |a| < 1'
-              ]}
-            ]
-          }
-        },
-        {
-          id: 5,
-          title: 'Lesson 4-5: Arithmetic Sequences',
-          icon: '🔢',
-          duration: '50 min',
-          lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-4.5/',
-          examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-4.5-exam/',
-          lessonTitle: '📖 Lesson Explanation',
-          examTitle: '📝 Take the Quiz',
-          content: {
-            intro: 'Arithmetic sequences have a constant difference between terms.',
-            sections: [
-              { title: 'Formula', type: 'formula', content: 'a_n = a₁ + (n-1)d' },
-              { title: 'Common Difference', type: 'bullets', content: [
-                'd = difference between consecutive terms',
-                'Example: 2, 5, 8, 11,... difference = 3'
-              ]},
-              { title: 'As Linear Function', type: 'bullets', content: [
-                'Sequence is discrete linear function',
-                'Slope = common difference',
-                'y = mx + b form'
-              ]},
-              { title: 'Examples', type: 'bullets', content: [
-                '3, 7, 11, 15,... d = 4',
-                'a_n = 3 + (n-1)4 = 4n - 1'
-              ]}
-            ]
-          }
-        },
-        {
-          id: 6,
-          title: 'Lesson 4-6: Piecewise and Step Functions',
-          icon: '📊',
-          duration: '55 min',
-          lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-4.6/',
-          examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-4.6-exam/',
-          lessonTitle: '📖 Lesson Explanation',
-          examTitle: '📝 Take the Quiz',
-          content: {
-            intro: 'Piecewise functions have different rules for different intervals.',
-            sections: [
-              { title: 'Piecewise Function', type: 'bullets', content: [
-                'Different equations for different domains',
-                'Example: f(x) = {x+1 if x<0, 2x if x≥0}'
-              ]},
-              { title: 'Step Function', type: 'bullets', content: [
-                'Constant on intervals',
-                'Looks like stairs',
-                'Example: postage rates'
-              ]},
-              { title: 'Graphing', type: 'bullets', content: [
-                'Graph each piece on its domain',
-                'Use open/closed circles',
-                'Show breaks clearly'
-              ]}
-            ]
-          }
-        },
-        {
-          id: 7,
-          title: 'Lesson 4-7: Absolute Value Functions',
-          icon: '| |',
-          duration: '55 min',
-          lessonUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-4.7/',
-          examUrl: 'https://hesham-afandi.github.io/9Adv-Ins-math-T1-4.7-exam/',
-          lessonTitle: '📖 Lesson Explanation',
-          examTitle: '📝 Take the Quiz',
-          content: {
-            intro: 'Absolute value functions have a V-shape graph.',
-            sections: [
-              { title: 'Parent Function', type: 'formula', content: 'f(x) = |x|' },
-              { title: 'General Form', type: 'formula', content: 'f(x) = a|x - h| + k' },
-              { title: 'Parameters', type: 'bullets', content: [
-                'a: vertical stretch/compression',
-                'h: horizontal shift',
-                'k: vertical shift',
-                'Vertex: (h, k)'
-              ]},
-              { title: 'Graph Shape', type: 'bullets', content: [
-                'V-shape',
-                'Vertex at turning point',
-                'Symmetric about vertical line through vertex'
-              ]},
-              { title: 'Examples', type: 'bullets', content: [
-                'f(x) = |x - 2| + 1: vertex (2, 1)',
-                'f(x) = 2|x|: steeper V',
-                'f(x) = |x + 3| - 2: vertex (-3, -2)'
+              { title: 'Proportional Parts', type: 'bullets', content: [
+                'Altitudes proportional',
+                'Medians proportional',
+                'Angle bisectors proportional',
+                'Perimeters proportional'
               ]}
             ]
           }

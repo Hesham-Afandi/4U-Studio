@@ -10,9 +10,10 @@ import { Term, Stream, Program, Grade, Subject, Unit, Lesson, AppState } from '.
 import { 
   FavoritesModal, StatsModal, CertificateModal, ShareModal, 
   PlannerModal, SummaryNotesModal, ReminderSettingModal, AlarmTriggeredModal,
-  InstallAppModal, VideoPlayerModal
+  InstallAppModal, VideoPlayerModal, ExamCodesModal
 } from './components/modals';
 import { WeeklyStudyPlanner } from './components/layout';
+import { STUDY_QUOTES } from './data/quotes';
 
 const DAYS_OF_WEEK = [
   { key: 'Saturday', name: 'السبت' },
@@ -38,18 +39,6 @@ const ADMIN_NOTIFICATION = {
 // =========================================================================
 // 🌟 قائمة الاقتباسات وحكم العلم والجمال (تتغير تلقائياً مع كل تحديث للصفحة)
 // =========================================================================
-const STUDY_QUOTES = [
-  "العِلْمُ يَبْنِي بُيُوتًا لَا عِمَادَ لَهَا.. وَالجَهْلُ يَهْدِمُ بَيْتَ العِزِّ وَالكَرَمِ. 🌟",
-  "الجمال الحقيقي يكمن في سعي النفس نحو العلم، والارتقاء بالفكر لنيل المعالي. ✨",
-  "من أراد الدنيا فعليه بالعلم، ومن أراد الآخرة فعليه بالعلم، ومن أرادهما معاً فعليه بالعلم. 📚",
-  "كلما اتسعت رقعة معرفتك، كلما ازدادت رؤيتك لجمال الكون وبهاء تفاصيله. 🌍",
-  "ليس الجمال بأثواب تزيّننا.. إن الجمال جمال العلم والأدب. 🎓",
-  "التعليم هو السلاح الأقوى الذي يمكنك استخدامه لتغيير العالم وتشكيل المستقبل. 🚀",
-  "النجاح ليس صدفة، بل هو ثمرة الكفاح، شغف التعلم، والاستمرار في العطاء والجمال. ❤️",
-  "العلم كالنور، يضيء لك المجهول ويصنع منك شخصاً مؤثراً ينفع البشرية. 💡",
-  "لا ينال العلم براحة الجسد، فاجتهد اليوم لتجني غداً ثمار النجاح الباهرة. 🏆",
-  "المعرفة قوة، والجمال في السعي المستمر لتطوير الذات ونشر الخير للناس. 🤝"
-];
 
 const COUNTRY_INFO: Record<string, { name: string; flag: string }> = {
   UAE: { name: 'الإمارات العربية المتحدة', flag: '🇦🇪' },
@@ -88,6 +77,7 @@ export default function App() {
   
   // Modals
   const [showFavoritesModal, setShowFavoritesModal] = useState(false);
+  const [showExamCodesModal, setShowExamCodesModal] = useState(false);
   const [showStatsModal, setShowStatsModal] = useState(false);
   const [showCertificateModal, setShowCertificateModal] = useState(false);
   const [showShareModal, setShowShareModal] = useState<{ title: string; url: string } | null>(null);
@@ -531,6 +521,7 @@ export default function App() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         if (showFavoritesModal) setShowFavoritesModal(false);
+        else if (showExamCodesModal) setShowExamCodesModal(false);
         else if (showStatsModal) setShowStatsModal(false);
         else if (showCertificateModal) setShowCertificateModal(false);
         else if (showShareModal) setShowShareModal(null);
@@ -2625,6 +2616,13 @@ export default function App() {
         onClose={() => setActiveVideoLesson(null)}
         lessonTitle={activeVideoLesson?.title || ''}
         videoUrl={activeVideoLesson?.videoUrl || ''}
+      />
+
+      {/* MODAL 11: DEVELOPER EXAM CODES CENTER */}
+      <ExamCodesModal
+        isOpen={showExamCodesModal}
+        onClose={() => setShowExamCodesModal(false)}
+        showToastMsg={showToastMsg}
       />
 
     </div>
