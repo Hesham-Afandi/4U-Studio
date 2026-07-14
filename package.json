@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port=3000 --host=0.0.0.0",
+    "dev": "vite --port": 3000 --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -31,7 +32,6 @@
     "gh-pages": "^6.3.0",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.3"
+    "typescript": "~5.8.2"
   }
 }
